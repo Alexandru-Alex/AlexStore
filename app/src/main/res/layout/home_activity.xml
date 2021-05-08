@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".Home">
+
+
+     <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:padding="15dp"
+        android:src="@drawable/logo"/>
+
+
+         <LinearLayout
+             android:layout_width="wrap_content"
+             android:layout_height="match_parent"
+             android:orientation="horizontal"
+             android:layout_gravity="center">
+
+             <ImageButton
+                 android:layout_width="24dp"
+                 android:layout_height="24dp"
+                 android:src="@drawable/arrow_left"
+                 android:id="@+id/sageata_stanga"
+                 android:background="@color/transparent"
+                 android:layout_gravity="center"
+                 />
+         <ViewFlipper
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:layout_margin="20dp"
+             android:adjustViewBounds="true"
+             android:measureAllChildren="false"
+             android:layout_gravity="center"
+             android:id="@+id/flipper"
+             />
+             <ImageButton
+                 android:layout_width="24dp"
+                 android:layout_height="24dp"
+                 android:src="@drawable/arrow_right"
+                 android:id="@+id/sageata_dreapta"
+                 android:background="@color/transparent"
+                 android:layout_gravity="center"
+                 />
+         </LinearLayout>
+         <TextView
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_gravity="center"
+             android:textColor="@color/black"
+             android:fontFamily="@font/ocr"
+             android:text="@string/prezentare"/>
+     </LinearLayout>
+
+
+</LinearLayout>

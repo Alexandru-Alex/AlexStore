@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "390323807119",
+    "firebase_url": "https://alexstore-d114f-default-rtdb.firebaseio.com",
+    "project_id": "alexstore-d114f",
+    "storage_bucket": "alexstore-d114f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:390323807119:android:2e4b1a6c9f4cf2ccbee1fa",
+        "android_client_info": {
+          "package_name": "com.example.alexstore"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "390323807119-m917dtjc4n0jios6ppdct6o9m811hpen.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCahYcq2VMjJVRy-O6-5UsofhnSWiEUsHc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "390323807119-m917dtjc4n0jios6ppdct6o9m811hpen.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

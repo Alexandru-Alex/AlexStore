@@ -1,0 +1,41 @@
+<resources>
+    <string name="app_name">AlexStore</string>
+    <string name="email">E-mail</string>
+    <string name="parola">Parola</string>
+    <string name="parolauitate">AȚI UITAT PAROLA?</string>
+    <string name="logare">Autentificați-vă</string>
+    <string name="inregistrare"><b><u>Înregistrare</u></b></string>
+    <string name="inregistrare_text"><b>Creati un cont</b></string>
+    <string name="resetare_parola">RESETAȚI PAROLA</string>
+    <string name="nume">Nume</string>
+    <string name="prenume">Prenume</string>
+    <string name="confirmare_parola">Confirmare Parola</string>
+    <string name="mobil">Mobil</string>
+    <string name="salveaza">Salveaza</string>
+    <string name="codpostal">Cod Postal</string>
+    <string name="orasul">Orasul</string>
+    <string name="adresa">Adresa</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <string name="prezentare">SPRING/SUMMER 2021 COLLECTION </string>
+    <string name="informatii_personale"><b>Informatile mele</b></string>
+    <string name="cumparaturi"><b>Cumparaturile mele</b></string>
+    <string name="returnari"><b>Returnarile mele</b></string>
+    <string name="logout"><b>Logout</b></string>
+    <string name="ajutor"><b>Centru de ajutor</b></string>
+    <string name="wallet"><b>Portofelul meu</b></string>
+    <string name="distribuie"><b>Distribuie la prieteni</b></string>
+    <string name="searchint"><i>Cauta dupa produs,colectie sau cuvant cheie</i></string>
+    <string name="culori">COLOURS</string>
+    <string name="vezi_tot"><u>Vezi toate</u></string>
+    <string name="detalii_magazin">IMPARTASIM CU DVS. NOUTATILE PRIVIND MAGAZINELE,LIVRARILE SI RETURNARILE</string>
+
+
+</resources>
