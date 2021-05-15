@@ -1,7 +1,9 @@
 package com.example.alexstore;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,6 +20,7 @@ import java.util.ArrayList;
 public class Lista_Produse extends AppCompatActivity implements View.OnClickListener {
 
     private View view;
+    private TextView filtru;
     private BDComunicare bdComunicare;
     private RecyclerView.Adapter madapter;
     private RecyclerView lista_produse;
@@ -30,8 +33,11 @@ public class Lista_Produse extends AppCompatActivity implements View.OnClickList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.lista_produse_activity);
         lista_produse=findViewById(R.id.lista_produse);
+        filtru=findViewById(R.id.filtru);
         bdComunicare=new BDComunicare();
 
+
+        filtru.setOnClickListener(this);
         bdComunicare.getFirestore().collection("Colectie_1").document("Haine").collection("Bluze").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
@@ -58,6 +64,15 @@ public class Lista_Produse extends AppCompatActivity implements View.OnClickList
 
     @Override
     public void onClick(View v) {
+        if(v==filtru)
+        {
+            System.out.println("AAM APASAT FILTRU");
+            Intent intent=new Intent(this,Filtre.class);
+            startActivity(intent);
+            this.getFragmentManager().popBackStack();
+        }
+        }
 
-    }
+
+
 }

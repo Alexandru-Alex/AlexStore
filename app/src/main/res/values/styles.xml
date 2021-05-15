@@ -29,5 +29,12 @@
 
     </style>
 
+    <style name="AppTheme.PopupRecenzie" parent="AppTheme">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowCloseOnTouchOutside">true</item>
+        <item name="android:windowIsFloating">true</item>
+
+    </style>
+
 
 </resources>
