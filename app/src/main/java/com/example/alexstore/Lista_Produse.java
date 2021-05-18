@@ -19,7 +19,7 @@ import java.util.ArrayList;
 
 public class Lista_Produse extends AppCompatActivity implements View.OnClickListener {
 
-    private View view;
+
     private TextView filtru;
     private BDComunicare bdComunicare;
     private RecyclerView.Adapter madapter;
@@ -66,7 +66,6 @@ public class Lista_Produse extends AppCompatActivity implements View.OnClickList
     public void onClick(View v) {
         if(v==filtru)
         {
-            System.out.println("AAM APASAT FILTRU");
             Intent intent=new Intent(this,Filtre.class);
             startActivity(intent);
             this.getFragmentManager().popBackStack();
