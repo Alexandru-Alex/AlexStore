@@ -15,7 +15,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
             android:layout_marginTop="50dp"
-            android:id="@+id/titlu"
+            android:id="@+id/filtru"
             android:drawableLeft="@drawable/filter"
             android:drawableTint="@color/black"
             />
