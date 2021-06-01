@@ -7,9 +7,15 @@ import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 
@@ -20,6 +26,7 @@ public class Filtre extends AppCompatActivity implements View.OnClickListener {
     private RecyclerView.Adapter madapter,marimeadapter;
     private RecyclerView lista_culori,lista_marimi;
     private Button pret_button,culoare_button,marimi_button,salvati_filtre;
+
 
     @Override
     protected void onCreate(Bundle saveInstanceState) {
@@ -75,6 +82,26 @@ public class Filtre extends AppCompatActivity implements View.OnClickListener {
         @Override
         public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
             pret.setText("Pret: " + progress + " RON");
+
+            BDComunicare bdComunicare=new BDComunicare();
+
+            bdComunicare.getFirestore().collection("Colectie_1").document("Haine").collection("Bluze").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                @Override
+                public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                    ArrayList<Produs> produse=new ArrayList<>();
+                    if(task.isSuccessful()) {
+
+                        for (QueryDocumentSnapshot documentSnapshot : task.getResult()) {
+                            Produs produs= documentSnapshot.toObject(Produs.class);
+                            if(Integer.parseInt(produs.getPret())<progress)
+                                produse.add(produs);
+                        }
+
+                        Lista_Produse lista_produse=new Lista_Produse();
+                        lista_produse.produsFiltrat(produse);
+                    }
+                }
+            });
         }
 
         @Override
@@ -129,6 +156,28 @@ public class Filtre extends AppCompatActivity implements View.OnClickListener {
                 lista_marimi.setVisibility(v.VISIBLE);
                 culoare_button.setBackgroundResource(R.drawable.up_arrow);
             }
+        }
+        if(v==salvati_filtre)
+        {
+            BDComunicare bdComunicare=new BDComunicare();
+
+            bdComunicare.getFirestore().collection("Colectie_1").document("Haine").collection("Bluze").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                @Override
+                public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                      ArrayList<Produs> produse=new ArrayList<>();
+                    if(task.isSuccessful()) {
+                        for (QueryDocumentSnapshot documentSnapshot : task.getResult()) {
+                            Produs produs= documentSnapshot.toObject(Produs.class);
+                                produse.add(produs);
+                        }
+
+                        Lista_Produse lista_produse=new Lista_Produse();
+                        lista_produse.produsFiltrat(produse);
+                    }
+System.out.println(" AM APASAT PE BUTON");
+                }
+            });
+            this.finish();
         }
     }
 }
