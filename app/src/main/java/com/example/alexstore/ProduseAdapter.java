@@ -1,6 +1,7 @@
 package com.example.alexstore;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
@@ -39,7 +40,6 @@ public class ProduseAdapter extends RecyclerView.Adapter<ProduseAdapter.ViewHold
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
 
-        System.out.println("PRODUSELEEE: " + lista_produse.get(position).getDescriere());
 
         try {
 
@@ -53,6 +53,19 @@ public class ProduseAdapter extends RecyclerView.Adapter<ProduseAdapter.ViewHold
         } catch (Exception e) {
             System.out.println(" AM INTRAT IN EXCEPTIEEEE");
         }
+
+        holder.poza_produs.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                System.out.println(" AM APASAT PE "+lista_produse.get(position).getDescriere());
+                Context context=v.getContext();
+                Intent intent=new Intent(context,Detalii_produs.class);
+                intent.putExtra("produs",lista_produse.get(position));
+                context.startActivity(intent);
+
+            }
+        });
     }
 
     @Override

@@ -121,7 +121,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@color/black"
-        android:text="SALVATI"
+        android:text="RESETATI"
         android:id="@+id/salvati_filtre"
         android:textColor="@color/white"
         android:fontFamily="@font/ocr"

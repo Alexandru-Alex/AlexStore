@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -15,7 +16,7 @@ import java.util.Arrays;
 public class MarimiAdapter  extends RecyclerView.Adapter<MarimiAdapter.ViewHolder> {
 
 
-    private final ArrayList<String> marimi=new ArrayList<String>(Arrays.asList("32","34","37","39","40","L","M","S","XL","XS","XXS"));
+    private final ArrayList<String> marimi=new ArrayList<String>(Arrays.asList("32","34","37","39","40","XL", "L","M","S","XS","XXS"));
     Context context;
 
 
@@ -27,12 +28,7 @@ public class MarimiAdapter  extends RecyclerView.Adapter<MarimiAdapter.ViewHolde
         return new ViewHolder(view);
     }
 
-    @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
-        holder.marime.setText(marimi.get(position));
-
-    }
 
     @Override
     public int getItemCount() {
@@ -46,6 +42,27 @@ public class MarimiAdapter  extends RecyclerView.Adapter<MarimiAdapter.ViewHolde
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             marime=itemView.findViewById(R.id.marimea_button);
+
         }
     }
+    @Override
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+
+        holder.marime.setText(marimi.get(position));
+        holder.marime.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(v.getContext(),"AI ALES MARIMEA: "+marimi.get(position),Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+
+
+
+
+
+
+    }
+
 }

@@ -1,6 +1,8 @@
 package com.example.alexstore;
 
-public class Produs {
+import java.io.Serializable;
+
+public class Produs implements Serializable {
 
     private String culoare;
     private String poza;

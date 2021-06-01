@@ -22,8 +22,8 @@ public class Lista_Produse extends AppCompatActivity implements View.OnClickList
 
     private TextView filtru;
     private BDComunicare bdComunicare;
-    private RecyclerView.Adapter madapter;
-    private RecyclerView lista_produse;
+    protected static RecyclerView.Adapter madapter;
+    protected static RecyclerView lista_produse;
 
 
 
@@ -59,6 +59,13 @@ public class Lista_Produse extends AppCompatActivity implements View.OnClickList
 
 
 
+    }
+
+    public void produsFiltrat(ArrayList<Produs> produse)
+    {
+        madapter= new ProduseAdapter(produse);
+        lista_produse.setLayoutManager(new GridLayoutManager(getBaseContext(),2));
+        lista_produse.setAdapter(madapter);
     }
 
 

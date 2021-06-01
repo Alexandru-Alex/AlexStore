@@ -32,6 +32,15 @@ public class BDComunicare {
         reference = FirebaseDatabase.getInstance().getReference().child("Utilizatori");
     }
 
+    public void adaugaCos(Produs produs)
+    {
+
+        autentifica = FirebaseAuth.getInstance();
+
+        reference = FirebaseDatabase.getInstance().getReference().child("Utilizatori").child(autentifica.getCurrentUser().getUid()).child("Cos").child(FirebaseDatabase.getInstance().getReference().push().getKey());
+        reference.setValue(produs);
+    }
+
 
     public void getPoze_main() {
         reference = FirebaseDatabase.getInstance().getReference().child("Poza_main");

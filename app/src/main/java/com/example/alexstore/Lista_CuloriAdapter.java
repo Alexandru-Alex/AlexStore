@@ -13,6 +13,11 @@ import androidx.appcompat.content.res.AppCompatResources;
 import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
+
 import java.util.ArrayList;
 
 public class Lista_CuloriAdapter  extends RecyclerView.Adapter<Lista_CuloriAdapter.ViewHolder> {
@@ -47,6 +52,26 @@ public class Lista_CuloriAdapter  extends RecyclerView.Adapter<Lista_CuloriAdapt
             public void onClick(View v) {
                 holder.culoare.setSelected(true);
                 holder.culoare.setActivated(true);
+
+               BDComunicare bdComunicare=new BDComunicare();
+
+                bdComunicare.getFirestore().collection("Colectie_1").document("Haine").collection("Bluze").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+
+                        if(task.isSuccessful()) {
+                            ArrayList<Produs> produse=new ArrayList<>();
+                            for (QueryDocumentSnapshot documentSnapshot : task.getResult()) {
+                                Produs produs= documentSnapshot.toObject(Produs.class);
+                                if(produs.getCuloare().equals(culori.get(position).getNume()))
+                                produse.add(produs);
+                            }
+
+                           Lista_Produse lista_produse=new Lista_Produse();
+                            lista_produse.produsFiltrat(produse);
+                        }
+                    }
+                });
 
             }
         });
